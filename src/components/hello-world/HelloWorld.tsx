@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./HelloWorld.module.css";
 
+// This component is provided as an example of integration to the API.
+// It does not indicate any patterns or stylings that we would like you to use - it is merely here to provide an example of
+// frontend -> backend communication to ensure they are functioning.
 function HelloWorld() {
   const [message, setMessage] = useState("Fetching...");
 
