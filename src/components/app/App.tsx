@@ -1,55 +1,62 @@
-import React from 'react';
-import logo from '../../images/logo.svg';
-import { Counter } from '../counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "../../logo.svg";
+import "./App.css";
+import HelloWorld from "../HelloWorld/HelloWorld";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <span>
-          <span>Learn </span>
+        <p>
+          <span>Instructions for the test can be found </span>
           <a
             className="App-link"
-            href="https://reactjs.org/"
+            href="https://github.com/LandlordStudio-Recruitment/ls-recruitment-front/blob/master/README.md"
             target="_blank"
             rel="noopener noreferrer"
           >
-            React
+            here
           </a>
-          <span>, </span>
+        </p>
+        <p>
+          <span>If you are new to React, you might want to look at the </span>
           <a
             className="App-link"
-            href="https://redux.js.org/"
+            href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Redux
+            Learn React
           </a>
-          <span>, </span>
+          <span> docs, and maybe </span>
           <a
             className="App-link"
-            href="https://redux-toolkit.js.org/"
+            href="https://reactjs.org/docs/hooks-intro.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Redux Toolkit
+            React Hooks
           </a>
-          ,<span> and </span>
+          <br></br>
+          <span>If you are unfamiliar with Typescript, the docs can be </span>
           <a
             className="App-link"
-            href="https://react-redux.js.org/"
+            href="https://www.typescriptlang.org/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            React Redux
+            found here
           </a>
-        </span>
+        </p>
+        <p>
+          The text below is produced by integrating to the API for the backend
+          test component, provided as an example.
+        </p>
+        <HelloWorld></HelloWorld>
       </header>
     </div>
   );
