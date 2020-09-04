@@ -4,7 +4,7 @@ Thanks for taking the time to do our full-stack coding test. This will have four
 
 1. a [task](#frontend) to create a create a list of payable transaction displayed in a react-based website.
 
-2. a [task](#backend) to create an REST API for retrieval and update of those rental payments.
+2. a [task](#backend) to create an REST API for retrieval and update of those rental payments, and an error scenario.
 
 3. some [follow-up questions](./FOLLOW-UP.md)
 
