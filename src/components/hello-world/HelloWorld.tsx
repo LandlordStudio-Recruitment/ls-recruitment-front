@@ -5,25 +5,27 @@ import styles from "./HelloWorld.module.css";
 // It does not indicate any patterns or stylings that we would like you to use - it is merely here to provide an example of
 // frontend -> backend communication to ensure they are functioning.
 function HelloWorld() {
-  const [message, setMessage] = useState("Fetching...");
+  const [message, setMessage] = useState<string>();
 
   useEffect(() => {
-    fetch("http://localhost:5000/HelloWorld", {
-      method: "GET",
-    })
-      .then((res) => res.text())
-      .then((text) => {
-        setMessage(text);
+    if (!message) {
+      fetch("http://localhost:5000/HelloWorld", {
+        method: "GET",
       })
-      .catch((error) => {
-        console.error("Error fetching message from backend API -", error);
-        setMessage(
-          "Couldn't fetch message from backend API - check that it is running"
-        );
-      });
+        .then((res) => res.text())
+        .then((text) => {
+          setMessage(text);
+        })
+        .catch((error) => {
+          console.error("Error fetching message from backend API -", error);
+          setMessage(
+            "Couldn't fetch message from backend API - check that it is running"
+          );
+        });
+    }
   });
 
-  return <span className={styles.message}>{message}</span>;
+  return <span className={styles.message}>{message || "Fetching..."}</span>;
 }
 
 export default HelloWorld;
