@@ -1,7 +1,7 @@
 export interface Payment {
   dueBy: Date;
   description: string;
-  status: PaymentStatus;
+  status: string;
   amount: number;
   id: string;
 }

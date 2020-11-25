@@ -12,8 +12,11 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
-import React, { FC } from "react";
-import { Payment, PaymentStatus } from "../../interfaces/payment.interface";
+import React, { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../rootReducer";
+import { useAppDispatch } from "../../store";
+import { fetchPayments } from "./paymentsSlice";
 
 const useStyles = makeStyles({
   table: {
@@ -24,32 +27,18 @@ const useStyles = makeStyles({
   },
 });
 
-const mockPayments: Payment[] = [
-  {
-    id: "1",
-    dueBy: new Date(),
-    description: "description",
-    amount: 1000.0,
-    status: PaymentStatus.Overdue,
-  },
-  {
-    id: "2",
-    dueBy: new Date(),
-    description: "description",
-    amount: 1000.0,
-    status: PaymentStatus.Overdue,
-  },
-  {
-    id: "3",
-    dueBy: new Date(),
-    description: "description",
-    amount: 1000.0,
-    status: PaymentStatus.Overdue,
-  },
-];
-
 const PaymentsTable: FC = () => {
   const classes = useStyles();
+  const dispatch = useAppDispatch();
+  const { payments } = useSelector((state: RootState) => state.payments);
+
+  useEffect(() => {
+    async function fetch() {
+      dispatch(fetchPayments());
+    }
+    fetch();
+  }, [dispatch]);
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -69,7 +58,7 @@ const PaymentsTable: FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {mockPayments.map((row) => (
+          {payments.map((row) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row" colSpan={1}>
                 <Box>

@@ -1,23 +1,40 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getPayments } from "../../api/lsAPI";
 import { Payment } from "../../interfaces/payment.interface";
+import { AppThunk } from "../../store";
 
-const diaries = createSlice({
+interface PaymentsState {
+  payments: Payment[];
+  error: string | null;
+}
+
+const paymentsInitialState: PaymentsState = {
+  payments: [],
+  error: null,
+};
+
+const payments = createSlice({
   name: "payments",
-  initialState: [] as Payment[],
+  initialState: paymentsInitialState,
   reducers: {
-    getPayments(state, { payload }: PayloadAction<Payment[]>) {
-      state = payload;
+    getPaymentsSuccess(state: PaymentsState, action: PayloadAction<Payment[]>) {
+      state.payments = action.payload;
     },
-    // payForPayment(state, { payload }: PayloadAction<Diary>) {
-    //   const { id } = payload;
-    //   const diaryIndex = state.findIndex((diary) => diary.id === id);
-    //   if (diaryIndex !== -1) {
-    //     state.splice(diaryIndex, 1, payload);
-    //   }
-    // },
+    getPaymentsFailure(state: PaymentsState, action: PayloadAction<string>) {
+      state.error = action.payload;
+    },
   },
 });
 
-export const { getPayments } = diaries.actions;
+export const { getPaymentsSuccess, getPaymentsFailure } = payments.actions;
 
-export default diaries.reducer;
+export default payments.reducer;
+
+export const fetchPayments = (): AppThunk => async (dispatch) => {
+  try {
+    const payments = await getPayments();
+    dispatch(getPaymentsSuccess(payments));
+  } catch (err) {
+    dispatch(getPaymentsFailure(err.toString()));
+  }
+};
