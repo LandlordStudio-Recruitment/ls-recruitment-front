@@ -116,9 +116,11 @@ const PaymentsTable: FC = () => {
                 </TableCell>
                 <TableCell align="left">
                   <NumberFormat
-                    value={row.amount}
+                    value={row.amount / 100.0}
                     displayType="text"
                     thousandSeparator
+                    decimalScale={2}
+                    fixedDecimalScale
                     prefix="$"
                   ></NumberFormat>{" "}
                 </TableCell>
