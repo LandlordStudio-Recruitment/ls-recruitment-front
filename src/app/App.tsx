@@ -1,5 +1,6 @@
 import {
   AppBar as MuiAppBar,
+  Box,
   CssBaseline,
   Divider,
   Drawer,
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(0, 1),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
-      justifyContent: "flex-end",
+      justifyContent: "center",
     },
     content: {
       flexGrow: 1,
@@ -85,6 +86,12 @@ const useStyles = makeStyles((theme: Theme) =>
     user: {
       flexGrow: 1,
       textAlign: "right",
+    },
+    selected: {
+      borderLeftStyle: "solid",
+      borderLeftWidth: "6px",
+      borderLeftColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     },
   })
 );
@@ -137,9 +144,6 @@ function AppDrawer(props: { drawerOpen: boolean }) {
         <div className={classes.drawerHeader}>
           <List>
             <ListItem key="Logo">
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
               <ListItemText primary="Tentant Studio" />
             </ListItem>
           </List>
@@ -152,7 +156,7 @@ function AppDrawer(props: { drawerOpen: boolean }) {
             key="Dashboard"
             component={NavLink}
             to="/dashboard"
-            activeClassName="Mui-selected"
+            activeClassName={classes.selected}
           >
             <ListItemIcon>
               <DashboardIcon />
@@ -166,7 +170,7 @@ function AppDrawer(props: { drawerOpen: boolean }) {
             key="YourDocuments"
             component={NavLink}
             to="/your-documents"
-            activeClassName="Mui-selected"
+            activeClassName={classes.selected}
           >
             <ListItemIcon>
               <DescriptionIcon />
