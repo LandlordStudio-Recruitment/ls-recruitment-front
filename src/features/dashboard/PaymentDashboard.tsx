@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+import PaymentsTable from "./PaymentsTable";
 
 const PaymentDashboard: FC = () => {
-  return <div>Dashboard다제</div>;
+  return <PaymentsTable />;
 };
 
 export default PaymentDashboard;
