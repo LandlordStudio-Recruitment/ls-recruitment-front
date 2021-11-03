@@ -62,9 +62,9 @@ A basic design for the website can be found [here](./design-spec/payment_list.pn
 When the user navigates to the `Dashboard` for the first time, fetch upcoming rent payments from the API you developed in [backend](#backend), and format them in user readable results.
 
 - The payment due dates should be formatted as MMM DD.
-- The status of each payment should be blank, `Paid`, or `Unpaid` depending on the payment status.
-- A pay button should only be displayed for payments that are not `Paid`
-- The amount should be formatted as a US dollar amount (e.g. \$10.00)
+- The status of each payment should be `Paid` or `Unpaid`, depending on the payment status.
+- A pay button should only be displayed for payments that are not `Paid`.
+- The amount should be formatted as a US dollar amount (e.g. \$10.00).
   **Note**: Payment amounts returned from the API will be in cents and must be converted to dollars.
 - Payments should be listed in ascending chronological order.
 
@@ -77,7 +77,7 @@ Once the you have displayed the payments, clicking the `Pay` button on each appl
 **NB:**
 You are not expected to match any of the styles, colour, fonts etc in the given design images exactly. These are just guidelines for how we would roughly like the site to be laid out and look.
 
-The frontend repository was created using `create-react-app ls-recruitment-front --template typescript`, with a few minor changes (see [here](https://create-react-app.dev/docs/documentation-intro) for more information on create-react-app).
+The frontend repository was created using `create-react-app ls-recruitment-front --template typescript`, with a few changes (see [here](https://create-react-app.dev/docs/documentation-intro) for more information on create-react-app).
 
 ## Running the frontend project
 
