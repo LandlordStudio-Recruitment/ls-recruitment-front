@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./HelloWorld.module.css";
 
 // This component is provided as an example of integration to the API.
