@@ -16,7 +16,7 @@ You will be assessed based on the following being met:
 
 - Your website roughly looks like the provided [design](./design-spec/payment_list.png) (please note that nothing has to be exact in terms of the look of the site).
 
-If you run into any issues, or if anything is unclear please get in contact - any feedback will help us improve our test.
+If you run into any issues, or if anything is unclear, please contact us - any feedback will help us improve our test.
 
 ---
 
