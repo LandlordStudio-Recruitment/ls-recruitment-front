@@ -90,7 +90,7 @@ To startup the frontend client run the following command.
 
 ## Running the backend project
 
-The backend project can be run via the [.NET CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run) or using Visual Studio/your IDE of choosing.
+The backend project can be run via the [.NET CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run) or using your IDE of choosing.
 
 ## Submission Guidelines
 
