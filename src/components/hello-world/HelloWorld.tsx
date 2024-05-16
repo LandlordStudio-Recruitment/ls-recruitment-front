@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "./HelloWorld.module.css";
+import "./HelloWorld.css";
 
 // This component is provided as an example of integration to the API.
 // It does not indicate any patterns or stylings that we would like you to use - it is merely here to provide an example of
@@ -23,7 +23,7 @@ function HelloWorld() {
       });
   }, []);
 
-  return <span className={styles.message}>{message || "Fetching..."}</span>;
+  return <span className="intergration">{message || "Fetching..."}</span>;
 }
 
 export default HelloWorld;
